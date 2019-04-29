@@ -6,11 +6,45 @@ class Authen extends StatefulWidget {
 }
 
 class _AuthenState extends State<Authen> {
+  Widget emailTextFormField() {
+    return TextFormField(
+      decoration: InputDecoration(
+          labelText: 'Email', hintText: 'email.com', icon: Icon(Icons.person)),
+    );
+  }
+
+  Widget passTextFormField() {
+    return TextFormField(
+      decoration: InputDecoration(
+          labelText: 'Password',
+          hintText: 'password',
+          icon: Icon(Icons.keyboard)),
+    );
+  }
+
+  Widget singupButton() {
+    return RaisedButton(
+      child: Text('Sign up'),
+      onPressed: () {},
+    );
+  }
+
+  Widget singinButton() {
+    return RaisedButton(
+      color: Colors.orange,
+      child: Text('Sign in'),
+      onPressed: () {},
+    );
+  }
+
   Widget showappname() {
     return Text(
       'Register',
       style: TextStyle(
-          fontSize: 30.0, fontWeight: FontWeight.bold, color: Colors.red,fontFamily: 'Kalam'),
+          fontSize: 30.0,
+          fontWeight: FontWeight.bold,
+          color: Colors.red,
+          fontFamily: 'Kalam'),
     );
   }
 
@@ -21,7 +55,12 @@ class _AuthenState extends State<Authen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(decoration : BoxDecoration(gradient: LinearGradient(colors: [Colors.yellow,Colors.green],begin: Alignment(-1, 1))),
+      resizeToAvoidBottomPadding: false,
+      body: Container(
+        decoration: BoxDecoration(
+            gradient: LinearGradient(
+                colors: [Colors.yellow, Colors.green],
+                begin: Alignment(-1, 1))),
         padding: EdgeInsets.only(top: 60.0),
         alignment: Alignment(0, -1),
         child: Column(
@@ -34,7 +73,27 @@ class _AuthenState extends State<Authen> {
             Container(
               margin: EdgeInsets.only(top: 15.0),
               child: showappname(),
-            )
+            ),
+            Container(
+              margin: EdgeInsets.only(left: 50.0, right: 50.0),
+              child: emailTextFormField(),
+            ),
+            Container(
+              margin: EdgeInsets.only(left: 50.0, right: 50.0),
+              child: passTextFormField(),
+            ),
+            Container(
+                margin: EdgeInsets.only(top: 20.0, left: 50.0, right: 50.0),
+                child: Row(
+                  children: <Widget>[
+                    Expanded(
+                      child: singupButton(),
+                    ),
+                    Expanded(
+                      child: singinButton(),
+                    ),
+                  ],
+                )),
           ],
         ),
       ),
